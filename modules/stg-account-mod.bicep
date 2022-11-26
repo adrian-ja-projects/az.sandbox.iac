@@ -1,4 +1,4 @@
-param customerName string
+param candidateID string
 @minLength(3)
 @maxLength(15)
 param storageAccountName string
@@ -20,7 +20,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
     name: 'default'
 
     resource containers 'containers' = {
-      name: '${customerName}-stgcontainer'
+      name: '${candidateID}-stgcontainer'
       properties: {
       }
     }

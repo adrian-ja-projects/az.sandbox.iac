@@ -8,6 +8,6 @@ resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview
     name: 'standard'
   }
   properties: {
-    managedResourceGroupId: resourceGroup().id
+    managedResourceGroupId: // do I need to create a managed resource group for dbw?
   }
 }
