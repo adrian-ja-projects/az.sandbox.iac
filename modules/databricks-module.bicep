@@ -1,5 +1,10 @@
+param candidateID string
 param databricksWorkspaceName string
 param location string
+
+var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'// should be assign an id to candidates
+
+// Vnet configuration
 
 resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview' = {
   name: databricksWorkspaceName
@@ -8,6 +13,12 @@ resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview
     name: 'standard'
   }
   properties: {
-    managedResourceGroupId: // do I need to create a managed resource group for dbw?
+    managedResourceGroupId: subscriptionResourceId('Microsoft.Resources/resourceGroups', managedResourceGroupName)
+    ///Should this be created before or after
+    parameters: {
+      enableNoPublicIp: {
+        value: false /// what is the current configuration?
+      }
+    }
   }
 }
