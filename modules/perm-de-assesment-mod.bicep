@@ -6,9 +6,9 @@ param databricksManagedIdentityName string
 param keyVaultName string
 param storageAccountName string
 
-var sievoDataEngineeringEngineeringAadObjectId = 'tbd'
-var azureDevopsPipelineAgentObjectId = 'tbd'
-var storageBlobDataContributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'tbd') //is this the correct one to storage account
+var sievoDataEngineeringEngineeringAadObjectId = '572ed27b-268d-49d2-9270-59090fc6e1bd'
+// var azureDevopsPipelineAgentObjectId = 'tbd'
+var storageBlobDataContributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe') //is this the correct one to storage account
 //var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' existing = {
@@ -32,17 +32,17 @@ resource keyVaultAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-0
   name: 'add'
   properties: {
     accessPolicies: [
-      {
-        objectId: azureDevopsPipelineAgentObjectId
-        permissions: {
-          secrets: [
-            'list'
-            'get'
-            'set'
-          ]
-        }
-        tenantId: subscription().id
-      }
+      // {
+      //   objectId: azureDevopsPipelineAgentObjectId
+      //   permissions: {
+      //     secrets: [
+      //       'list'
+      //       'get'
+      //       'set'
+      //     ]
+      //   }
+      //   tenantId: subscription().id
+      // }
       {
         objectId: dataFactory.identity.principalId
         permissions: {
