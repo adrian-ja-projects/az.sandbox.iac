@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "value": "deAdminSqlAssesment"
+        },
+        "administratorLoginPassword": {
+            "value": "d1t13ngin33r"
+        },
+        "budgetAmount": {
+            "value": 5
+        },
+        "dataFactoryName": {
+            "value": "adf-de-assignment-candidate1"
+        },
+		"databricksManagedIdentityName": {
+			"value": "dbmanagedid-candidate1"
+		},
+        "candidateID": {
+            "value": "candidate1"
+        },
+        "candidateAadObjectID": {
+            "value": ""
+        },
+        "contactEmails": {
+            "value": ["adrian.jimeneza@gmail.com"]
+        },
+        "environmentType": {
+            "value": "prod"
+        },
+        "keyVaultName": {
+            "value": "kv-assesment-candidate1"
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "managedStorageAccountName": {
+            "value": "stbdbwassesmentcandidate1"
+        },
+        "resourceGroupName": {
+            "value": "rg-de-assesment-candidate1"
+        },
+        "storageAccountName": {
+            "value": "stgassesmentcandidate1"
+        },
+        "sqlDBName": {
+            "value": "sql-db-assesment-candidate1"
+        },
+        "sqlServerName": {
+            "value": "sql-server-assignment-candidate1"
+        },
+        "startDate": {
+			"value": "2020-01-01"
+        },
+		"thresholdBudget": {
+			"value": 2 
+        }
+    }
+}
