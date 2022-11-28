@@ -1,8 +1,10 @@
 param candidateID string
-param databricksWorkspaceName string
 param location string
+param managedStorageAccountName string
 
+var databricksWorkspaceName = 'dbw-de-assesment-${candidateID}'
 var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'// should be assign an id to candidates
+//var storageAccountIdentityName = 'dbmanagedidentity-${candidateID}'
 
 // Vnet configuration
 
@@ -13,12 +15,22 @@ resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview
     name: 'standard'
   }
   properties: {
-    managedResourceGroupId: subscriptionResourceId('Microsoft.Resources/resourceGroups', managedResourceGroupName)
-    ///Should this be created before or after
+    managedResourceGroupId: managedResourceGroup.id
     parameters: {
       enableNoPublicIp: {
         value: false /// what is the current configuration?
       }
+      storageAccountName: {
+        value: managedStorageAccountName
+      }
+      storageAccountSkuName: {
+        value: 'Standard_GRS'
+      }
     }
   }
+}
+
+resource managedResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' existing = {
+  scope: subscription()
+  name: managedResourceGroupName
 }
