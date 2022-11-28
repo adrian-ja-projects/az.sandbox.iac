@@ -1,4 +1,4 @@
-param candidateID string
+//param candidateID string
 param candidateAadObjectId string
 param dataFactoryName string
 param databricksManagedIdentityName string
@@ -9,7 +9,7 @@ param storageAccountName string
 var sievoDataEngineeringEngineeringAadObjectId = 'tbd'
 var azureDevopsPipelineAgentObjectId = 'tbd'
 var storageBlobDataContributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'tbd') //is this the correct one to storage account
-var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
+//var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' existing = {
   name: storageAccountName
