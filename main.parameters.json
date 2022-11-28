@@ -42,7 +42,7 @@
             "value": "rg-de-assesment-candidate1"
         },
         "storageAccountName": {
-            "value": "stgassesmentcandidate1"
+            "value": "stgacandidate1"
         },
         "sqlDBName": {
             "value": "sql-db-assesment-candidate1"
