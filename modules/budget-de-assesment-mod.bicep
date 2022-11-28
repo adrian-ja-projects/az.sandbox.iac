@@ -7,8 +7,6 @@ param resourceGroupName string // how to use the correct
 
 var budgetName = 'consumption-budget-${candidateID}'
 
-
-
 //warning budget? 25eur
 resource rgAssesmentBudget 'Microsoft.Consumption/budgets@2021-10-01' =  {
   name: budgetName
