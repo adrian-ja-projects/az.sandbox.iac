@@ -2,13 +2,12 @@ param candidateAadObjectId string
 param dataFactoryName string
 param keyVaultName string
 param storageAccountName string
-
+//param resourceGroupName string
 
 var sievoDataEngineeringEngineeringAadObjectId = '572ed27b-268d-49d2-9270-59090fc6e1bd'
 // var azureDevopsPipelineAgentObjectId = 'tbd'
 var storageBlobDataContributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe') //is this the correct one to storage account
 //var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
-
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' existing = {
   name: storageAccountName
@@ -110,3 +109,11 @@ resource adfStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@
     dataFactory
   ]
 }
+
+// resource roleAssignmentReaderCandidate 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+//   name: guid(subscription().id, resourceGroupName, 'reader')
+//   properties: {
+//     principalId: candidateAadObjectId
+//     roleDefinitionId: readerRoleDefinitionId
+//   }
+// }

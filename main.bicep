@@ -86,7 +86,7 @@ module permission_modules 'modules/perm-de-rg-assesment-mod.bicep' = {
   params: {
     candidateAadObjectId: candidateAadObjectID
     dataFactoryName: dataFactoryName
-    //databricksManagedIdentityName: databricksManagedIdentityName
+    //resourceGroupName: resourceGroupName
     keyVaultName: keyVaultName
     storageAccountName: storageAccountName
   }
@@ -100,6 +100,7 @@ module permission_modules 'modules/perm-de-rg-assesment-mod.bicep' = {
 }
 
 module readerRoleResourceGroupCandidate 'modules/perm-de-subs-assesment-mod.bicep' = {
+  scope: resourceGroup
   name: 'subs_permissions'
   params: {
     candidateAadObjectId: candidateAadObjectID
