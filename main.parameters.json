@@ -6,19 +6,16 @@
             "value": "deAdminSqlAssesment"
         },
         "administratorLoginPassword": {
-            "value": "d1t13ngin33r"
+            "value": "d1t13ngin33r!&"
         },
         "budgetAmount": {
             "value": 5
         },
         "dataFactoryName": {
-            "value": "adf-de-assignment-candidate1"
-        },
-		"databricksManagedIdentityName": {
-			"value": "dbmanagedid-candidate1"
+            "value": "adf-de-assignment-candidate2"
 		},
         "candidateID": {
-            "value": "candidate1"
+            "value": "candidate2"
         },
         "candidateAadObjectID": {
             "value": "6999a605-8647-4927-810e-79f8d76eb8a7"
@@ -30,28 +27,28 @@
             "value": "prod"
         },
         "keyVaultName": {
-            "value": "kv-assesment-candidate1"
+            "value": "kv-assesment-candidate2"
         },
         "location": {
             "value": "westeurope"
         },
         "managedStorageAccountName": {
-            "value": "stbdbwassesmentcandidate1"
+            "value": "stdbwgcandidate2"
         },
         "resourceGroupName": {
-            "value": "rg-de-assesment-candidate1"
+            "value": "rg-de-assesment-candidate2"
         },
         "storageAccountName": {
-            "value": "stgacandidate1"
+            "value": "stgacandidate2"
         },
         "sqlDBName": {
-            "value": "sql-db-assesment-candidate1"
+            "value": "sql-db-assesment-candidate2"
         },
         "sqlServerName": {
-            "value": "sql-server-assignment-candidate1"
+            "value": "sql-server-assignment-candidate2"
         },
         "startDate": {
-			"value": "2020-01-01"
+			"value": "2022-11-01"
         },
 		"thresholdBudget": {
 			"value": 2 

@@ -3,7 +3,7 @@ param administratorLogin string
 param administratorLoginPassword string
 param budgetAmount int
 param dataFactoryName string
-param databricksManagedIdentityName string
+//param databricksManagedIdentityName string
 param candidateID string
 param candidateAadObjectID string
 param contactEmails array
@@ -80,15 +80,30 @@ module sqlServer_module 'modules/sql-de-assesment-mod.bicep' = {
   }
 }
 
-module permission_modules 'modules/perm-de-assesment-mod.bicep' = {
+module permission_modules 'modules/perm-de-rg-assesment-mod.bicep' = {
   name: 'permissions'
   scope: resourceGroup
   params: {
     candidateAadObjectId: candidateAadObjectID
     dataFactoryName: dataFactoryName
-    databricksManagedIdentityName: databricksManagedIdentityName
+    //databricksManagedIdentityName: databricksManagedIdentityName
     keyVaultName: keyVaultName
     storageAccountName: storageAccountName
+  }
+  dependsOn: [
+    key_vault_module
+    storage_account_module
+    data_factory_module
+    dbw_module
+    sqlServer_module
+  ]
+}
+
+module readerRoleResourceGroupCandidate 'modules/perm-de-subs-assesment-mod.bicep' = {
+  name: 'subs_permissions'
+  params: {
+    candidateAadObjectId: candidateAadObjectID
+    resourceGroupName: resourceGroupName
   }
   dependsOn: [
     key_vault_module
