@@ -124,15 +124,3 @@ resource adfStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@
     dataFactory
   ]
 }
-
-// resource databricksServicePrincipalStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-//   name: guid(resourceGroup().name, databricksManagedIdentityName, 'Storage Blob Data Contributor')
-//   scope: storageAccount
-//   properties: {
-//     principalId: databricksManagedIdentity.id
-//     roleDefinitionId: storageBlobDataContributorRoleID
-//   }
-//   dependsOn: [
-//     storageAccount
-//   ]
-// }

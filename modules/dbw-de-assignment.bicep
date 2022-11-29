@@ -27,10 +27,6 @@ resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview
         value: 'Standard_GRS'
       }
     }
-    storageAccountIdentity: {
-      name: 'dbimanageddb'
-      tier: ''
-    }
   }
 }
 

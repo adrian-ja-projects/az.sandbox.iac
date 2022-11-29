@@ -128,15 +128,3 @@ resource rgAssesmentBudget 'Microsoft.Consumption/budgets@2021-10-01' =  {
     }
   }
 }
-
-// module budget_module 'modules/budget-de-assesment-mod.bicep' = {
-//   name: 'budget'
-//   params: {
-//     budgetAmount: budgetAmount
-//     candidateID: candidateID
-//     contactEmails: contactEmails
-//     resourceGroupName: resourceGroupName
-//     startDate: startDate
-//     thresholdBudget: thresholdBudget
-//   }
-// }
