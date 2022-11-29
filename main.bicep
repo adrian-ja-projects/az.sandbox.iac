@@ -3,7 +3,6 @@ param administratorLogin string
 param administratorLoginPassword string
 param budgetAmount int
 param dataFactoryName string
-//param databricksManagedIdentityName string
 param candidateID string
 param candidateAadObjectID string
 param contactEmails array
@@ -63,7 +62,6 @@ module dbw_module 'modules/dbw-de-assignment.bicep' = {
   scope: resourceGroup
   params: {
     candidateID: candidateID
-    candidateAadObjectID: candidateAadObjectID
     location: location
     managedStorageAccountName: managedStorageAccountName
   }
@@ -85,9 +83,9 @@ module permission_modules 'modules/perm-de-rg-assesment-mod.bicep' = {
   name: 'permissions'
   scope: resourceGroup
   params: {
+    candidateID: candidateID
     candidateAadObjectId: candidateAadObjectID
     dataFactoryName: dataFactoryName
-    //resourceGroupName: resourceGroupName
     keyVaultName: keyVaultName
     storageAccountName: storageAccountName
   }

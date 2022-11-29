@@ -1,13 +1,16 @@
+//==============================================================
+// Bicep Module for Data Factory deployments for assesments
+//AdrianJ / v1.0 / 2022-1
+//==============================================================
 param contactEmails array
 param budgetAmount int
 param candidateID string
 param startDate string
-param thresholdBudget int // how to get percentage?
-param resourceGroupName string // how to use the correct 
+param thresholdBudget int 
+param resourceGroupName string 
 
 var budgetName = 'consumption-budget-${candidateID}'
 
-//warning budget? 25eur
 resource rgAssesmentBudget 'Microsoft.Consumption/budgets@2021-10-01' =  {
   name: budgetName
   properties: {

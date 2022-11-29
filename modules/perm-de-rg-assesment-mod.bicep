@@ -1,14 +1,13 @@
 param candidateAadObjectId string
+param candidateID string
 param dataFactoryName string
 param keyVaultName string
 param storageAccountName string
 
-//param resourceGroupName string
-
+var contributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
+var databricksWorkspaceName = 'dbw-de-assesment-${candidateID}'
 var sievoDataEngineeringEngineeringAadObjectId = '572ed27b-268d-49d2-9270-59090fc6e1bd'
-// var azureDevopsPipelineAgentObjectId = 'tbd'
-var storageBlobDataContributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe') //is this the correct one to storage account
-//var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
+var storageBlobDataContributorRoleID = resourceId('Microsoft.Authorization/roleDefinitions', 'ba92f5b4-2d11-453d-a403-e96b0029c9fe') 
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' existing = {
   name: storageAccountName
@@ -20,6 +19,10 @@ resource keyVault 'Microsoft.KeyVault/vaults@2022-07-01' existing = {
 
 resource dataFactory 'Microsoft.DataFactory/factories@2018-06-01' existing = {
   name: dataFactoryName
+}
+
+resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview' existing = {
+  name: databricksWorkspaceName
 }
 
 resource keyVaultAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-07-01' = {
@@ -109,4 +112,22 @@ resource adfStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@
     storageAccount
     dataFactory
   ]
+}
+
+resource SievoContributorAccessDatabricksWorkspace 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: databricksWorkspace
+  name: guid(databricksWorkspace.id, sievoDataEngineeringEngineeringAadObjectId, 'contributorAccess')
+  properties: {
+    principalId: sievoDataEngineeringEngineeringAadObjectId
+    roleDefinitionId: contributorRoleID
+  }
+}
+
+resource candidateContributorAccessDatabricksWorkspace 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: databricksWorkspace
+  name: guid(databricksWorkspace.id, candidateAadObjectId, 'contributorAccess')
+  properties: {
+    principalId: candidateAadObjectId
+    roleDefinitionId: contributorRoleID
+  }
 }
