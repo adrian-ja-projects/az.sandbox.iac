@@ -62,8 +62,9 @@ module dbw_module 'modules/dbw-de-assignment.bicep' = {
   name: 'databricksWorkspace'
   scope: resourceGroup
   params: {
-    location: location
     candidateID: candidateID
+    candidateAadObjectID: candidateAadObjectID
+    location: location
     managedStorageAccountName: managedStorageAccountName
   }
 }
@@ -72,9 +73,9 @@ module sqlServer_module 'modules/sql-de-assesment-mod.bicep' = {
   name: 'sqlServer'
   scope: resourceGroup
   params: {
-    location: location
     administratorLogin: administratorLogin 
     administratorLoginPassword: administratorLoginPassword
+    location: location
     sqlDBName: sqlDBName
     sqlServerName: sqlServerName
   }

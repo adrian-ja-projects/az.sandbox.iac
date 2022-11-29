@@ -12,10 +12,10 @@
             "value": 5
         },
         "dataFactoryName": {
-            "value": "adf-de-assignment-candidate2"
+            "value": "adf-de-assignment-candidate3"
 		},
         "candidateID": {
-            "value": "candidate2"
+            "value": "candidate3"
         },
         "candidateAadObjectID": {
             "value": "6999a605-8647-4927-810e-79f8d76eb8a7"
@@ -27,25 +27,25 @@
             "value": "prod"
         },
         "keyVaultName": {
-            "value": "kv-assesment-candidate2"
+            "value": "kv-assesment-candidate3"
         },
         "location": {
             "value": "westeurope"
         },
         "managedStorageAccountName": {
-            "value": "stdbwgcandidate2"
+            "value": "stdbwgcandidate3"
         },
         "resourceGroupName": {
-            "value": "rg-de-assesment-candidate2"
+            "value": "rg-de-assesment-candidate3"
         },
         "storageAccountName": {
-            "value": "stgacandidate2"
+            "value": "stgacandidate3"
         },
         "sqlDBName": {
-            "value": "sql-db-assesment-candidate2"
+            "value": "sql-db-assesment-candidate3"
         },
         "sqlServerName": {
-            "value": "sql-server-assignment-candidate2"
+            "value": "sql-server-assignment-candidate3"
         },
         "startDate": {
 			"value": "2022-11-01"

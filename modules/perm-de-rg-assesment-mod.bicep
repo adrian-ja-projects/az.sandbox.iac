@@ -2,6 +2,7 @@ param candidateAadObjectId string
 param dataFactoryName string
 param keyVaultName string
 param storageAccountName string
+
 //param resourceGroupName string
 
 var sievoDataEngineeringEngineeringAadObjectId = '572ed27b-268d-49d2-9270-59090fc6e1bd'
@@ -109,11 +110,3 @@ resource adfStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@
     dataFactory
   ]
 }
-
-// resource roleAssignmentReaderCandidate 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-//   name: guid(subscription().id, resourceGroupName, 'reader')
-//   properties: {
-//     principalId: candidateAadObjectId
-//     roleDefinitionId: readerRoleDefinitionId
-//   }
-// }

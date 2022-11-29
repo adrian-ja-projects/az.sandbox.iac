@@ -22,6 +22,7 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
       sid: sievoDataEngineeringEngineeringAadObjectId
       tenantId: subscription().tenantId
     }
+    minimalTlsVersion: '1.2'
     publicNetworkAccess: 'Enabled'
     restrictOutboundNetworkAccess: 'Disabled'
   }
@@ -36,6 +37,8 @@ resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
     name : 'Basic'
   }
    properties: {
+    autoPauseDelay: 60
     zoneRedundant: false
+    createMode: 'Default'
    }
 }
