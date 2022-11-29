@@ -3,7 +3,7 @@ param location string
 param managedStorageAccountName string
 
 var databricksWorkspaceName = 'dbw-de-assesment-${candidateID}'
-var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'// should be assign an id to candidates
+var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
 //var storageAccountIdentityName = 'dbmanagedidentity-${candidateID}'
 
 // Vnet configuration
@@ -26,6 +26,10 @@ resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview
       storageAccountSkuName: {
         value: 'Standard_GRS'
       }
+    }
+    storageAccountIdentity: {
+      name: 'dbimanageddb'
+      tier: ''
     }
   }
 }

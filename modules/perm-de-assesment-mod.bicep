@@ -72,16 +72,15 @@ resource keyVaultAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-0
         }
         tenantId: subscription().tenantId
       }
-      // Databricks managed identity
-      // {
-      //   objectId: //databrickWorkspace.identity.principalId
-      //   permissions: {
-      //     secrets: [
-      //       'get'
-      //     ]
-      //   }
-      //   tenantId : subscription().tenantId
-      // }
+      {
+        objectId: databricksManagedIdentity.id
+        permissions: {
+          secrets: [
+            'get'
+          ]
+        }
+        tenantId : subscription().tenantId
+      }
     ]
   }
 }
@@ -89,7 +88,7 @@ resource keyVaultAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-0
 @description('Assigns the sievo group to Storage Blob Data Contributor Role for the adls in the resource group')
 resource userRoleAssignmentADLSSievo 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   scope: storageAccount
-  name: guid(storageAccount.id, sievoDataEngineeringEngineeringAadObjectId, 'Storage Blob Data Contributor')// should the storage blob contains spaces?
+  name: guid(storageAccount.id, sievoDataEngineeringEngineeringAadObjectId, 'Storage Blob Data Contributor')
   properties: {
     principalId: sievoDataEngineeringEngineeringAadObjectId
     roleDefinitionId: storageBlobDataContributorRoleID
@@ -102,7 +101,7 @@ resource userRoleAssignmentADLSSievo 'Microsoft.Authorization/roleAssignments@20
 @description('Assigns the candidate to Storage Blob Data Contributor Role for the adls in the resource group')
 resource userRoleAssignmentADLSCandidate 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   scope: storageAccount
-  name: guid(storageAccount.id, candidateAadObjectId, 'Storage Blob Data Contributor')// should the storage blob contains spaces?
+  name: guid(storageAccount.id, candidateAadObjectId, 'Storage Blob Data Contributor')
   properties: {
     principalId: candidateAadObjectId
     roleDefinitionId: storageBlobDataContributorRoleID
@@ -126,14 +125,14 @@ resource adfStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@
   ]
 }
 
-resource databricksServicePrincipalStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(resourceGroup().name, databricksManagedIdentityName, 'Storage Blob Data Contributor')
-  scope: storageAccount
-  properties: {
-    principalId: databricksManagedIdentity.id
-    roleDefinitionId: storageBlobDataContributorRoleID
-  }
-  dependsOn: [
-    storageAccount
-  ]
-}
+// resource databricksServicePrincipalStorageDataBlobContributor 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+//   name: guid(resourceGroup().name, databricksManagedIdentityName, 'Storage Blob Data Contributor')
+//   scope: storageAccount
+//   properties: {
+//     principalId: databricksManagedIdentity.id
+//     roleDefinitionId: storageBlobDataContributorRoleID
+//   }
+//   dependsOn: [
+//     storageAccount
+//   ]
+// }
