@@ -12,13 +12,13 @@
             "value": 25
         },
         "dataFactoryName": {
-            "value": "adf-de-assessment-candidate4"
+            "value": "REPLACE_WITH_ADF_NAME"
 		},
         "candidateID": {
-            "value": "candidate4"
+            "value": "REPLACE_WITH_CANDIDATE_ID"
         },
         "candidateAadObjectID": {
-            "value": "6999a605-8647-4927-810e-79f8d76eb8a7"
+            "value": "REPLACE_WITH_CANDIDATE_OID"
         },
         "contactEmails": {
             "value": ["adrian.jimeneza@gmail.com"]
@@ -27,28 +27,28 @@
             "value": "assessment"
         },
         "keyVaultName": {
-            "value": "kv-assessment-candidate4"
+            "value": "REPLACE_WITH_KV_NAME"
         },
         "location": {
             "value": "westeurope"
         },
         "managedStorageAccountName": {
-            "value": "stdbwcandidate4"
+            "value": "REPLACE_WITH_STA_DABRICKS_NAME"
         },
         "resourceGroupName": {
-            "value": "rg-de-assessment-candidate4"
+            "value": "REPLACE_WITH_RG_NAME"
         },
         "storageAccountName": {
-            "value": "stacandidate4"
+            "value": "REPLACE_WITH_STA_NAME"
         },
         "sqlDBName": {
-            "value": "sql-db-assessment-candidate4"
+            "value": "REPLACE_WITH_SQL_DB_NAME"
         },
         "sqlServerName": {
-            "value": "sql-server-assessment-candidate4"
+            "value": "REPLACE_WITH_SQL_SERVER_NAME"
         },
         "startDate": {
-			"value": "2022-11-01"
+			"value": "REPLACE_WITH_START_DATE"
         },
 		"thresholdBudget": {
 			"value": 2 
