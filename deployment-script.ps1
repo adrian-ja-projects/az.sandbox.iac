@@ -26,15 +26,15 @@ $azureSubscription = "ce07b563-1e18-4f13-aab3-d7db450b0d03"
 Select-AzSubscription -SubscriptionId $azureSubscription #to-do silent output
 
 #set candidate parameters
-$dataFactoryName = "adf-de-assessment-$candidateID"
-$keyVaultName = "kv-assessment-$candidateID"
+$dataFactoryName = "adf-$candidateID"
+$keyVaultName = "kv-$candidateID"
 $location = "westeurope"
 $managedStorageAccountName = "stdbw$candidateID"
-$resourceGroupName = "rg-de-assessment-$candidateID"
+$resourceGroupName = "rg-$candidateID"
 $storageAccountName = "sta$candidateID"
-$sqlDBName = "sql-db-assessment-$candidateID"
-$sqlServerName = "sql-server-assessment-$candidateID"
-$deploymentName = "deployment-assessment-$candidateID"
+$sqlDBName = "sql-db-$candidateID"
+$sqlServerName = "sql-server-$candidateID"
+$deploymentName = "deployment-$candidateID"
 $templateFilePath = ".\main.bicep"
 $templateParameterFilePath = ".\main.parameters.json"
 
