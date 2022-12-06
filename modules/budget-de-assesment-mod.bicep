@@ -30,7 +30,7 @@ resource rgAssesmentBudget 'Microsoft.Consumption/budgets@2021-10-01' =  {
     }
     filter: {
       dimensions: {
-        name: resourceGroupName
+        name: 'ResourceGroupName'
         operator: 'In'
         values: [
           resourceGroupName
