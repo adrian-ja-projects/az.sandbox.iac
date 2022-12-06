@@ -51,7 +51,7 @@
 			"value": "REPLACE_WITH_START_DATE"
         },
 		"thresholdBudget": {
-			"value": 2 
+			"value": 1 
         }
     }
 }
