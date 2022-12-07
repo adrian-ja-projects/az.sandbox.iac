@@ -43,7 +43,7 @@ $startDate = Get-Date -UFormat "%Y-%m"
 $startDate = "$startDate-01"
 
 #check if resource group exists 
-$resourceGroupExists = Get-AzResourceGroup -name $resourceGroupName -ErrorAction SilentlyContinue
+#$resourceGroupExists = Get-AzResourceGroup -name $resourceGroupName -ErrorAction SilentlyContinue
 
 # if ($null -ne $resourceGroupExists){
 #     Write-Error "Resource group $resourceGroupName exists!"

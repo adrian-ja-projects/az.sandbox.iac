@@ -29,13 +29,17 @@ resource rgAssesmentBudget 'Microsoft.Consumption/budgets@2021-10-01' =  {
       }
     }
     filter: {
-      dimensions: {
-        name: 'ResourceGroupName'
-        operator: 'In'
-        values: [
-          resourceGroupName
-        ]
-      }
+      and: [
+        {
+          dimensions: {
+            name: 'ResourceGroupName'
+            operator: 'In'
+            values: [
+              resourceGroupName
+            ]
+          }
+        }
+      ]    
     }
   }
 }
