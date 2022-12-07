@@ -36,7 +36,7 @@ $sqlDBName = "sql-db-$candidateID"
 $sqlServerName = "sql-server-$candidateID"
 $deploymentName = "deployment-$candidateID"
 $templateFilePath = ".\main.bicep"
-$templateParameterFilePath = ".\main.parameters.json"
+$templateParameterFilePath = "iac-assessment-env\main.parameters.json"
 
 #get first date of month for budget date
 $startDate = Get-Date -UFormat "%Y-%m"
@@ -51,7 +51,7 @@ $startDate = "$startDate-01"
 # }
 
 #replace parameters in parameters file
-$templateContent = Get-Content -Path "_param_template\parameters_template.json";
+$templateContent = Get-Content -Path "iac-assessment-env\Resources\parameters_template.json";
 
 $customerContent = $templateContent.Replace("REPLACE_WITH_ADF_NAME", $dataFactoryName);
 $customerContent = $customerContent.Replace("REPLACE_WITH_CANDIDATE_ID", $candidateID);
@@ -72,3 +72,6 @@ New-AzDeployment `
 -Location $location `
 -TemplateFile $templateFilePath `
 -TemplateParameterFile $templateParameterFilePath
+
+#set sql authetication for candidate
+.\pipeline_scripts\sql-server-create-user.ps1 

@@ -1,0 +1,7 @@
+-- create SQL auth login from master 
+CREATE USER [REPLACE_WITH_CANDIDATE_ID] 
+WITH PASSWORD = REPLACE_WITH_PASSWORD
+
+-- -- add user to role(s) in db 
+ALTER ROLE [db_datareader] ADD MEMBER [REPLACE_WITH_CANDIDATE_ID];
+ALTER ROLE [db_datawriter] ADD MEMBER [REPLACE_WITH_CANDIDATE_ID];
