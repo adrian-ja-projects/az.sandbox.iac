@@ -46,6 +46,7 @@ resource keyVaultAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-0
         permissions: {
           secrets: [
             'get'
+            'list'
           ]
         }
         tenantId: subscription().tenantId
@@ -55,6 +56,9 @@ resource keyVaultAccessPolicies 'Microsoft.KeyVault/vaults/accessPolicies@2022-0
         permissions: {
           secrets: [
             'get'
+            'list'
+            'set'
+            'delete'
           ]
         }
         tenantId: subscription().tenantId
