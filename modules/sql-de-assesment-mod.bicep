@@ -28,6 +28,15 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   }
 }
 
+resource sqlServerFirewallRuleAllowAll 'Microsoft.Sql/servers/firewallRules@2022-05-01-preview' = {
+  name: 'sqlServerFirewallAllowAll'
+  parent: sqlServer
+  properties: {
+    startIpAddress: '0.0.0.0'
+    endIpAddress: '255.255.255.255'
+  }
+}
+
 resource sqlDB 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
   parent: sqlServer
   name: sqlDBName
