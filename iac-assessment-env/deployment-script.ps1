@@ -43,12 +43,12 @@ $startDate = Get-Date -UFormat "%Y-%m"
 $startDate = "$startDate-01"
 
 #check if resource group exists 
-#$resourceGroupExists = Get-AzResourceGroup -name $resourceGroupName -ErrorAction SilentlyContinue
+$resourceGroupExists = Get-AzResourceGroup -name $resourceGroupName -ErrorAction SilentlyContinue
 
-# if ($null -ne $resourceGroupExists){
-#     Write-Error "Resource group $resourceGroupName exists!"
-#     Exit 1;
-# }
+if ($null -ne $resourceGroupExists){
+    Write-Error "Resource group $resourceGroupName exists!"
+    Exit 1;
+}
 
 #replace parameters in parameters file
 $templateContent = Get-Content -Path "iac-assessment-env\Resources\parameters_template.json";
