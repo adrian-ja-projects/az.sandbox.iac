@@ -21,7 +21,7 @@ param (
     [parameter(Mandatory = $true)] [string] $candidateAadObjectID
 )
 
-$azureSubscription = "ce07b563-1e18-4f13-aab3-d7db450b0d03"
+$azureSubscription = "f8f8e50f-8f5c-4b23-b0e9-cbbfd9bc50a0"
 
 Select-AzSubscription -SubscriptionId $azureSubscription #to-do silent output
 

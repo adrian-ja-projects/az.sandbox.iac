@@ -5,8 +5,8 @@ param location string
 param sqlDBName string
 param sqlServerName string
 
-var sievoDataEngineeringEngineeringGroupName = '572ed27b-268d-49d2-9270-59090fc6e1bd'
-var sievoDataEngineeringEngineeringAadObjectId = 'ba92f5b4-2d11-453d-a403-e96b0029c9fe'
+var sievoDataEngineeringEngineeringGroupName = 'sievoSandboxDataEngineering'
+var sievoDataEngineeringEngineeringAadObjectId = '09a0140e-e112-4f07-95b0-1192427a6ea9'
 
 resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   name: sqlServerName

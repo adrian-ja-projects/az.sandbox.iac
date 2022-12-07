@@ -2,7 +2,7 @@ param candidateID string
 param location string
 param managedStorageAccountName string
 
-var databricksWorkspaceName = 'dbw-de-assesment-${candidateID}'
+var databricksWorkspaceName = 'dbw-${candidateID}'
 var managedResourceGroupName = 'dbw-de-assesment-${candidateID}-${uniqueString(candidateID, resourceGroup().id)}'
 
 resource databricksWorkspace 'Microsoft.Databricks/workspaces@2022-04-01-preview' = {
