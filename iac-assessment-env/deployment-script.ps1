@@ -35,7 +35,7 @@ $storageAccountName = "sta$candidateID"
 $sqlDBName = "sql-db-$candidateID"
 $sqlServerName = "sql-server-$candidateID"
 $deploymentName = "deployment-$candidateID"
-$templateFilePath = ".\main.bicep"
+$templateFilePath = "iac-assessment-env\main.bicep"
 $templateParameterFilePath = "iac-assessment-env\main.parameters.json"
 
 #get first date of month for budget date
@@ -64,7 +64,7 @@ $customerContent = $customerContent.Replace("REPLACE_WITH_SQL_DB_NAME", $sqlDBNa
 $customerContent = $customerContent.Replace("REPLACE_WITH_SQL_SERVER_NAME", $sqlServerName);
 $customerContent = $customerContent.Replace("REPLACE_WITH_START_DATE", $startDate);
 
-$customerContent | Out-File "main.parameters.json";
+$customerContent | Out-File "iac-assessment-env\main.parameters.json";
 
 #resource group deployment
 New-AzDeployment `
@@ -72,6 +72,3 @@ New-AzDeployment `
 -Location $location `
 -TemplateFile $templateFilePath `
 -TemplateParameterFile $templateParameterFilePath
-
-#set sql authetication for candidate
-.\pipeline_scripts\sql-server-create-user.ps1 
